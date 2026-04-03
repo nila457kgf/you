@@ -23,13 +23,7 @@ padding:40px;
 display:block;
 }
 
-  <audio id="bgMusic" controls loop>
-  <source src="Cruel_Summer-649107-mobiles24.mp3" type="audio/mpeg">
-</audio>
-<script>
-document.addEventListener("click", function(){
-document.getElementById("bgmusic").play();
-});
+ 
 .gallery-center{
 display:flex;
 flex-direction:column;
@@ -190,11 +184,29 @@ transform:rotate(-3deg);
 transition:0.3s;
 }
 
+  .music-player{
+position:fixed;
+top:20px;
+right:20px;
+background:#2C2C2C;
+padding:10px 15px;
+border-radius:15px;
+}
+
 
 </style>
 </head>
 
 <body>
+
+  <!-- MUSIC -->
+<div class="music-player">
+<button onclick="toggleMusic()">🎵 Music</button>
+</div>
+
+<audio id="bgMusic" loop>
+<source src="music.mp3" type="audio/mpeg">
+</audio>
 
 <!-- Countdown Page -->
 
@@ -360,6 +372,23 @@ src="RelightingCandles1-Phablet.jpg">
 <p>Happy Birthday! 🎂🎉</p>
 
 </section>
+  /* MUSIC */
+
+function toggleMusic(){
+let music=document.getElementById("bgMusic");
+if(music.paused){
+music.play();
+}else{
+music.pause();
+}
+}
+
+/* start music after first click */
+
+document.body.addEventListener("click",function(){
+document.getElementById("bgMusic").play();
+},{once:true});
+
 
 
 <script>
