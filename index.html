@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Akhiii Birthday Surprise</title>
+
+<style>
+
+body{
+margin:0;
+font-family:"Lucida Handwriting", cursive;
+background:#f6fbff;
+text-align:center;
+color:#444;
+}
+
+section{
+display:none;
+padding:40px;
+}
+
+.active{
+display:block;
+}
+<audio id="bgmusic" loop>
+<source src="Cruel_Summer-649107-mobiles24.mp3" type="audio/mp3">
+</audio>
+
+<script>
+document.addEventListener("click", function(){
+document.getElementById("bgmusic").play();
+});
+.gallery-center{
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:40px;
+margin-top:40px;
+}
+
+.gallery-center img{
+width:650px;
+max-width:90%;
+border-radius:15px;
+box-shadow:0 10px 25px rgba(0,0,0,0.4);
+}
+
+.gallery-center video{
+width:650px;
+max-width:90%;
+border-radius:15px;
+}
+</script>
+
+
+/* Countdown */
+
+.bigTitle{
+font-size:70px;
+margin-top:120px;
+color:#ff7eb9;
+}
+
+#timer{
+font-size:50px;
+margin-top:20px;
+color:#6fa8ff;
+}
+
+/* Buttons */
+
+button{
+padding:12px 25px;
+border:none;
+border-radius:25px;
+background:#ffb6c1;
+font-size:18px;
+cursor:pointer;
+margin:10px;
+}
+
+button:hover{
+background:#ffc7d4;
+}
+
+/* Cards */
+
+.card{
+display:inline-block;
+background:white;
+border-radius:20px;
+padding:15px;
+margin:15px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+img{
+width:200px;
+border-radius:15px;
+}
+
+.gift{
+cursor:pointer;
+transition:transform .2s;
+}
+
+.gift:hover{
+transform:scale(1.1);
+}
+
+.cake{
+width:260px;
+}
+
+.bunny{
+width:140px;
+margin:10px;
+}
+/* Page 1 - Countdown */
+#countdownPage{
+background:#0F0F0F; /* smoky black */
+color:#FCBF49;
+min-height:100vh;
+}
+
+/* Page 3 - Ready for surprise */
+#readyPage{
+background:#C4A69F; /* muted rose */
+color:#1C1C1C;
+min-height:100vh;
+}
+
+/* Page 6 - Gallery */
+#galleryPage{
+background:#4B2E2B; /* coffee brown */
+color:#F4F0EC;
+min-height:100vh;
+}
+
+/* Page 7 - Cake page */
+#cakePage{
+background:#DCC9B6; /* sand beige */
+color:#1C1C1C;
+min-height:100vh;
+}
+
+/* Page 8 - Final message */
+#finalPage{
+background:#1C1C1C;
+color:#FCBF49;
+min-height:100vh;
+}
+#noPage{
+background:#4B2E2B;
+color:#10566;
+min-height:100vh;
+}
+
+#giftPage{
+background:#DCC9B6; /* sand beige */
+color:#1C1C1C;
+min-height:100vh;
+}
+
+#galleryPage{
+background:#4B2E2B;
+color:#F4F0EC;
+min-height:100vh;
+}
+
+#cakePage{
+background:#F839958; /* MOSS GREEN */
+color:#85596;
+min-height:100vh;
+}
+.bigtitle{
+font-size:70px;
+letter-spacing:3px;
+text-shadow:0 0 10px rgba(0,0,0,0.4);
+}
+.frame{
+background:#F4F0EC; /* polaroid white */
+padding:15px 15px 40px 15px;
+border-radius:6px;
+box-shadow:0 8px 20px rgba(0,0,0,0.4);
+display:inline-block;
+margin:25px;
+transform:rotate(-3deg);
+transition:0.3s;
+}
+
+
+</style>
+</head>
+
+<body>
+
+<!-- Countdown Page -->
+
+<section id="countdownPage" class="active">
+
+<h1 class="bigTitle">🎀 My Akhi's Special Day 🎂</h1>
+
+<h2 id="timer"></h2>
+
+<img width="150"
+src="mr-bean-mrbean.gif">
+
+<p>Vennela🐰 waiting for the party!</p>
+
+</section>
+
+
+<!-- Happy Birthday GIF Page -->
+
+<section id="birthdayPage">
+
+<h1>🎉 HAPPY BIRTHDAY 🎉</h1>
+
+<img width="300"
+src="damon-salvatore-blowing-a-kiss.gif">
+
+<p>It's your special day!!</p>
+
+<button onclick="nextPage('surprisePage')">Continue 🎁</button>
+
+</section>
+
+
+<!-- Surprise Page -->
+
+<section id="surprisePage">
+
+<h1>Are you ready for surprise? 🎁</h1>
+
+<p>Two cute bunnies are waiting 🐰</p>
+
+
+<img class="bunny"
+src="goma-cat-nod.gif">
+<button onclick="nextPage('giftPage')">YES 💖
+</button>
+
+<img class="bunny"
+src="milk-and-mocha-milk-dỗi.webp">
+<button onclick="nextPage('noPage')">NO 😤</button>
+
+<p id="noText"></p>
+
+</section>
+<section id="noPage">
+
+<h1>😡 HOW DARE YOU!!</h1>
+
+<img width="250"
+src="milk-and-mocha-bear-couple.gif">
+
+<p>I Will Kick You!</p>
+
+<p>You MUST click YES for the surprise 🎁</p>
+
+<button onclick="nextPage('surprisePage')">Okay Okay... I'll click YES 😭</button>
+
+</section>
+
+
+<!-- Gift Page -->
+
+<section id="giftPage">
+
+<h1>🎁 GIFT FOR YOU 🎀</h1>
+
+<p>Pick a cute kitty gift!</p>
+
+<div class="card gift" onclick="openGallery()">
+<img src="download.jpeg">
+</div>
+
+<div class="card gift" onclick="openGallery()">
+<img src="download.jpeg">
+</div>
+
+<div class="card gift" onclick="openGallery()">
+<img src="download.jpeg">
+</div>
+
+<div class="card gift" onclick="openGallery()">
+<img src="download.jpeg">
+</div>
+
+</section>
+
+
+<!-- Photo Gallery -->
+
+<section id="galleryPage">
+
+<div id="galleryPage" class="page">
+
+<h1 class="bigtitle">My cutie🎀 📸</h1>
+
+<div class="gallery-center">
+
+<img src="WhatsApp Image 2026-04-02 at 15.29.56.jpeg" alt="memory photo">
+
+<video controls>
+<source src="WhatsApp Video 2026-04-02 at 15.30.36.mp4" type="video/mp4">
+</video>
+
+<video controls>
+<source src="WhatsApp Video 2026-04-02 at 15.31.05.mp4" type="video/mp4">
+</video>
+
+</div>
+
+</div>
+<br>
+
+<button onclick="nextPage('cakePage')">Next Surprise 🎂</button>
+
+</section>
+
+
+<!-- Cake Page -->
+
+<section id="cakePage">
+
+<h1>Make a wish! 🎂</h1>
+
+<img id="cake" class="cake"
+src="RelightingCandles1-Phablet.jpg">
+
+<br>
+
+<button onclick="blowCandles()">BLOW</button>
+
+<p id="wishText"></p>
+
+</section>
+
+
+<!-- Final Page -->
+
+<section id="finalPage">
+<div class="card">
+<img src="WhatsApp Image 2026-04-02 at 14.27.49.jpeg">
+
+</div>
+
+<h1>💖 To My Forever love 💖</h1>
+
+<p>I love you the mostest!</p>
+
+<p>I trust you.</p>
+<p>I am always proud of you</p>
+
+<p>You're amazing and I'm your #1 Fan ⭐</p>
+
+<p>Happy Birthday! 🎂🎉</p>
+
+</section>
+
+
+<script>
+
+/* Countdown */
+
+const birthday=new Date("April 1, 2026 00:00:00").getTime()
+
+var timer=setInterval(function(){
+
+let now=new Date().getTime()
+
+let distance=birthday-now
+
+let d=Math.floor(distance/(1000*60*60*24))
+let h=Math.floor((distance%(1000*60*60*24))/(1000*60*60))
+let m=Math.floor((distance%(1000*60*60))/(1000*60))
+let s=Math.floor((distance%(1000*60))/1000)
+
+document.getElementById("timer").innerHTML=
+d+"d "+h+"h "+m+"m "+s+"s"
+
+if(distance<0){
+
+clearInterval(timer)
+
+nextPage("birthdayPage")
+
+}
+
+},1000)
+
+
+/* Page Switch */
+
+function nextPage(id){
+
+document.querySelectorAll("section").forEach(s=>s.classList.remove("active"))
+
+document.getElementById(id).classList.add("active")
+
+}
+
+/* NO Button Reaction */
+
+
+/* Open Gallery */
+
+function openGallery(){
+
+nextPage("galleryPage")
+
+}
+
+/* Cake Blow */
+
+function blowCandles(){
+
+document.getElementById("cake").src="WhatsApp Image 2026-04-02 at 14.46.51.jpeg"
+
+document.getElementById("wishText").innerHTML=
+"✨ Candles blown! Your wish will come true!"
+
+setTimeout(()=>nextPage("finalPage"),2000)
+
+}
+
+</script>
+
+</body>
+</html>
