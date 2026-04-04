@@ -1,7 +1,9 @@
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Akhiii Birthday Surprise</title>
 
 <style>
@@ -23,12 +25,20 @@ padding:40px;
 display:block;
 }
  
-
-.gallery-center video{
-width:650px;
-max-width:90%;
+img{
+width:100%;
+max-width:400px;
 border-radius:15px;
 }
+
+.gallery-center img,
+.gallery-center video{
+width:100%;
+max-width:650px;
+border-radius:15px;
+}
+
+
 </script>
 
 
@@ -49,13 +59,14 @@ color:#6fa8ff;
 /* Buttons */
 
 button{
-padding:12px 25px;
+padding:10px 20px;
 border:none;
 border-radius:10px;
 background:#ffb6c1;
-font-size:18px;
+font-size:12px;
 cursor:pointer;
-margin:10px;
+margin:5px;
+ font-family: "Brush Script MT", cursive;
 }
 
 button:hover{
@@ -133,7 +144,48 @@ background:#2C2C2C;
 padding:10px 15px;
 border-radius:15px;
 }
+@media (max-width:600px){
 
+.bigTitle{
+font-size:38px;
+margin-top:60px;
+}
+
+#timer{
+font-size:28px;
+}
+
+.bigtitle{
+font-size:36px;
+}
+
+button{
+font-size:16px;
+padding:10px 18px;
+}
+
+.card{
+margin:10px;
+}
+
+img{
+max-width:90%;
+}
+
+.cake{
+width:180px;
+}
+
+.bunny{
+width:100px;
+}
+
+.gallery-center img,
+.gallery-center video{
+max-width:95%;
+}
+
+}
 
 </style>
 </head>
