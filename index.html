@@ -191,6 +191,91 @@ max-width:95%;
 }
 
 }
+ /* Floating Hearts */
+
+.heart{
+position:fixed;
+top:-20px;
+font-size:24px;
+animation:fall linear forwards;
+}
+
+@keyframes fall{
+0%{
+transform:translateY(-10vh) rotate(0deg);
+opacity:1;
+}
+
+100%{
+transform:translateY(110vh) rotate(360deg);
+opacity:0;
+}
+}
+
+
+/* Confetti / Party Boosters */
+
+.confetti{
+position:fixed;
+width:10px;
+height:10px;
+top:-10px;
+background:red;
+animation:confettiFall linear forwards;
+}
+
+@keyframes confettiFall{
+0%{
+transform:translateY(-10vh) rotate(0deg);
+}
+
+100%{
+transform:translateY(110vh) rotate(720deg);
+}
+}
+
+
+/* Floating Balloons */
+
+.balloon{
+position:fixed;
+bottom:-100px;
+font-size:40px;
+animation:balloonUp linear forwards;
+}
+
+@keyframes balloonUp{
+0%{
+transform:translateY(0);
+opacity:1;
+}
+
+100%{
+transform:translateY(-120vh);
+opacity:0;
+}
+}
+
+
+/* Cute page fade animation */
+
+section{
+display:none;
+padding:40px;
+animation:fadeIn 1s ease;
+}
+
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:scale(0.95);
+}
+
+to{
+opacity:1;
+transform:scale(1);
+}
+}
 
 </style>
 </head>
@@ -457,6 +542,95 @@ document.getElementById("wishText").innerHTML=
 setTimeout(()=>nextPage("finalPage"),2000)
 
 }
+
+ /* Hearts Animation */
+
+function createHearts(){
+
+for(let i=0;i<20;i++){
+
+let heart=document.createElement("div")
+
+heart.classList.add("heart")
+
+heart.innerHTML="💖"
+
+heart.style.left=Math.random()*100+"vw"
+
+heart.style.animationDuration=(3+Math.random()*3)+"s"
+
+document.body.appendChild(heart)
+
+setTimeout(()=>heart.remove(),6000)
+
+}
+
+}
+
+
+/* Confetti Animation */
+
+function createConfetti(){
+
+for(let i=0;i<40;i++){
+
+let conf=document.createElement("div")
+
+conf.classList.add("confetti")
+
+conf.style.left=Math.random()*100+"vw"
+
+conf.style.background=
+"rgb("+Math.random()*255+","+Math.random()*255+","+Math.random()*255+")"
+
+conf.style.animationDuration=(2+Math.random()*3)+"s"
+
+document.body.appendChild(conf)
+
+setTimeout(()=>conf.remove(),5000)
+
+}
+
+}
+
+
+/* Balloons */
+
+function createBalloons(){
+
+for(let i=0;i<10;i++){
+
+let balloon=document.createElement("div")
+
+balloon.classList.add("balloon")
+
+balloon.innerHTML="🎈"
+
+balloon.style.left=Math.random()*100+"vw"
+
+balloon.style.animationDuration=(4+Math.random()*4)+"s"
+
+document.body.appendChild(balloon)
+
+setTimeout(()=>balloon.remove(),7000)
+
+}
+
+}
+ function nextPage(id){
+
+document.querySelectorAll("section").forEach(s=>s.classList.remove("active"))
+
+document.getElementById(id).classList.add("active")
+
+createHearts()
+createConfetti()
+createBalloons()
+
+}
+ <script>
+setInterval(createHearts,2000)
+</script>
 
 </script>
 
